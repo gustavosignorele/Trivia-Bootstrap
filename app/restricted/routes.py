@@ -59,10 +59,4 @@ admin.add_view(MyModelView(Role, db.session))
 @login_required
 @admin_permission.require(http_exception=403)
 def test_principal():
-    lista_de_cosas = ["item1", "item2", "item3"]
-    return render_template('test.html', subtitulo="subtitulo", texto="este es el texto", lista=lista_de_cosas, precio="7676.8")
-
-@restricted_bp.route('/test_open')
-def test_principal_free():
-    lista_de_cosas = ["item1", "item2", "item3"]
-    return render_template('test.html', subtitulo="subtitulo", texto="este es el texto", lista=lista_de_cosas, precio="7676.8")
+    return render_template('test.html')

@@ -61,6 +61,11 @@ def evaluar_respuesta(id_categoria, pregunta_id, id_respuesta):
 
 
 
+@public_bp.route('/test_template')
+def test_principal_free():
+    lista_de_cosas = ["item1", "item2", "item3"]
+    return render_template('test_template.html', subtitulo="subtitulo", texto="este es el texto", lista=lista_de_cosas, precio="7676.8")
+
 
 
 
