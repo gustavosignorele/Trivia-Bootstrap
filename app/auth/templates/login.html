@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block app_content %}
-    {{ wtf.quick_form(form) }}
+    {{ wtf.quick_form(form,form_type="horizontal", horizontal_columns=('lg', 1, 3)) }}
+
     <a href="{{ url_for('auth.register') }}">¿No estás registrado?</a>
 {% endblock %}

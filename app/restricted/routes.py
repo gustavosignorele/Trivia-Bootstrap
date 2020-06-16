@@ -36,7 +36,7 @@ class MyModelView(ModelView):
         return has_auth and has_perm
 
     def inaccessible_callback(self, name, **kwargs):
-        return redirect(url_for('login', next=request.url))
+        return redirect(url_for('auth.login', next=request.url))
 
 class MyAdminIndexView(AdminIndexView):
     def is_accessible(self):
@@ -59,4 +59,10 @@ admin.add_view(MyModelView(Role, db.session))
 @login_required
 @admin_permission.require(http_exception=403)
 def test_principal():
-    return render_template('test.html')
+    lista_de_cosas = ["item1", "item2", "item3"]
+    return render_template('test.html', subtitulo="subtitulo", texto="este es el texto", lista=lista_de_cosas, precio="7676.8")
+
+@restricted_bp.route('/test_open')
+def test_principal_free():
+    lista_de_cosas = ["item1", "item2", "item3"]
+    return render_template('test.html', subtitulo="subtitulo", texto="este es el texto", lista=lista_de_cosas, precio="7676.8")

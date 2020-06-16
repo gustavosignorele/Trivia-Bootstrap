@@ -1,6 +1,7 @@
-<body>
-    {% extends "base.html" %}
-    {% block content %}
+
+{% extends "base.html" %}
+{% block app_content %}
+
     <h3>Su última respuesta es correcta! Gano!</h3>
     <br>
     <h3>El tiempo total de la jugada fue:</h3>
@@ -8,5 +9,4 @@
     {{ tiempo_total }}
     <br>
     <h3><a href="{{ url_for('public.index_trivia') }}">Iniciar el Juego nuevamente</a></h3>
-    {% endblock %}
-</body>
+{% endblock %}
