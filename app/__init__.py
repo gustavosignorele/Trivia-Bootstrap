@@ -11,11 +11,11 @@ db = SQLAlchemy()
 admin = Admin()
 principal = Principal()
 migrate = Migrate()
-
+app = Flask(__name__)
 
 def create_app():
 
-    app = Flask(__name__)
+
     app.config['SECRET_KEY'] = 'A SECRET KEY'
     POSTGRES = {
         'user': 'postgres',
@@ -29,7 +29,7 @@ def create_app():
 
     login_manager.init_app(app)
     db.init_app(app)
-    admin.init_app(app)
+    #admin.init_app(app)
     principal.init_app(app)
     # Se inicializa el objeto migrate
     migrate.init_app(app, db)
